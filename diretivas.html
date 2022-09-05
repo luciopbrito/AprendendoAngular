@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Diretivas</title>
+</head>
+
+<body>
+    <!-- para chamar as diretivas você precisa separá-las com ' - ' se necessário
+    Neste caso foi necessário porque houve uma diferença entre maiúsculas e minúsculas -->
+    <div ng-app="myApp" w3-test-directive testsegundadiretiva></div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        // é possível apenas uma diretiva.
+        app.directive("w3TestDirective", function () {
+            return {
+                template: "I was made in a directive constructor!"
+            };
+        });
+
+        app.directive("testsegundadiretiva", function () {
+            return {
+                template: "Deu certo segunda diretiva"
+            }
+        });
+    </script>
+</body>
+
+</html>
