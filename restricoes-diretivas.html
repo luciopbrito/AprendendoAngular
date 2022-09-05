@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Testando Restrições</title>
+</head>
+
+<body>
+    <div ng-app="app" ng-controller="appController">
+        <directive-p></directive-p>
+        <p directive-p></p> <!-- está restrita para elementos e não atributos -->
+        <p directive-a></p>
+        <directive-a></directive-a> <!-- está restrita para atributos e não elementos -->
+    </div>
+</body>
+<script>
+    var app = angular.module('app', [])
+
+    app.directive('directiveP', function () {
+        return {
+            restrict: "E",
+            template: '<p>Restrito para Elementos</p>'
+        }
+    });
+
+    app.directive('directiveA', function () {
+        return {
+            restrict: "A",
+            template: 'Restrito para Atributos'
+        }
+    });
+</script>
+
+</html>
