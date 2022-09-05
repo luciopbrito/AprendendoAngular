@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Expressões</title>
+</head>
+
+<body>
+    <h1>Trocando fundo do input para cor que está contida nele</h1>
+    <div ng-app="Myapp" ng-controller="AppController">
+        <label for="corWord">Cores em inglês</label>
+        <input name="corWord" type="text" style="background-color:{{color}}" ng-model="color">
+        <br>
+        <label for="corHex">É possível cores decimais também</label>
+        <input name="corHex" type="text" style="background-color:{{color1}}" ng-model="color1">
+    </div>
+</body>
+<script>
+    var app = angular.module('Myapp', []);
+    app.controller('AppController', function ($scope) {
+        $scope.color = 'blue';
+        $scope.color1 = '#123'
+    });
+</script>
+
+</html>
