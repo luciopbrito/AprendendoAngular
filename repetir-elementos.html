@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Repetindo dados em AngularJS</title>
+</head>
+
+<body>
+    <div ng-app="myapp" ng-controller="myappController">
+        <h1>Repetindo elementos</h1>
+        <ul>
+            <li ng-repeat="nome in listaNomes">
+                {{nome}}
+            </li>
+        </ul>
+        <h2>Repetindo elmentos com objetos</h2>
+        <p ng-repeat="pessoa in pessoas">
+            {{'Nome: ' + pessoa.name + ' ' + 'Pais: ' + pessoa.country}}
+        </p>
+    </div>
+</body>
+<script>
+    var app = angular.module('myapp', []);
+
+    app.controller('myappController', function ($scope) {
+        $scope.listaNomes = ['Lúcio', 'Marivaldo', 'Valber', 'Barbara']
+        $scope.pessoas = [
+            { name: 'Lúcio', country: 'Brasil' },
+            { name: 'Valber', country: 'Estados Unidos' },
+            { name: 'Marivaldo', country: 'Inglaterra' }
+        ]
+    });
+</script>
+
+</html>
