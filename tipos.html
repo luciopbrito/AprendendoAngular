@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Tipos de dados em AngularJS</title>
+</head>
+
+<body>
+    <h1>Tipos de dados em Angular</h1>
+    <p>
+        Todos os dados são declarados como no JS, mas você precisar usar os controller para iniciar dados ou
+        <strong>data-ng-init</strong>
+    </p>
+    <div ng-app="tipos-app" ng-controller="tiposController">
+        <h2>Numeros</h2>
+        <p>{{numeros}}</p>
+        <h2>Strings</h2>
+        <p>{{string}}</p>
+        <h2>Objects</h2>
+        <p>{{person.name + ' ' + person.lname}}</p>
+        <h2>Arrays</h2>
+        <p>{{array[0]}}</p>
+        <p>{{array[1]}}</p>
+        <h3>Objetos em Arrays</h3>
+        <p>{{array[2].name + ' ' + array[2].lname}}</p>
+    </div>
+</body>
+<script>
+    var app = angular.module("tipos-app", []);
+    app.controller('tiposController', function ($scope) {
+        $scope.numeros = 100;
+        $scope.string = 'Angular é Demais';
+        $scope.person = { name: 'Lúcio', lname: 'Brito' };
+        $scope.array = array = ['Angular', 1150, person = { name: 'Marivaldo', lname: 'Almeida' }];
+    });
+</script>
+
+</html>
