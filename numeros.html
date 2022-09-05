@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números em Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <!-- Quando nomear um app, você precisa chamá-lo no JS-->
+    <div ng-app="test-numeros" data-ng-init="nome = 'Lucio Brito'">
+        <p><span ng-bind="nome"></span></p>
+    </div>
+</body>
+<script>
+    var app = angular.module("test-numeros", []);
+</script>
+
+</html>
