@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Criando filtro personalizado</title>
+</head>
+
+<body>
+    <div ng-app="app" ng-controller="appController">
+        <h1>Criando filtro personalizado</h1>
+        <ul>
+            <li ng-repeat="n in names">
+                {{n | allLowerCaseUntilPenult}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', [])
+    // filtro para deixar todas letras minúsculas e a última maiúscula
+    app.filter('allLowerCaseUntilPenult', function () {
+        return function (element) {
+            var contents, i, txtReturn = '';
+            for (i = 0; i < element.length; i++) {
+                contents = element[i];
+                if (i == element.length - 1) {
+                    contents = contents.toUpperCase();
+                }
+                else {
+                    contents = contents.toLowerCase();
+                }
+                txtReturn += contents;
+            }
+            return txtReturn;
+        }
+    });
+
+    app.controller('appController', function ($scope) {
+        $scope.names = [
+            'Jani',
+            'Carl',
+            'Margareth',
+            'Hege',
+            'Joe',
+            'Gustav',
+            'Birgit',
+            'Mary',
+            'Kai'
+        ];
+    })
+</script>
+
+</html>
