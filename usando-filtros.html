@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Usando Filtros</title>
+</head>
+
+<body>
+    <h1>Usando filtros</h1>
+    <div ng-app="app" ng-controller="appController">
+        <h2>Filtro lowercase</h2>
+        <p>{{string | lowercase}}</p>
+        <h2>Filtro uppercase</h2>
+        <p>{{string | uppercase}}</p>
+        <h2>Filtro currency</h2>
+        <!-- Usando dois pontos podemos definir o formato da moeda com apas -->
+        <p>{{number | currency: 'R$'}}</p>
+        <h2>Filtro OrderBy</h2>
+        <ul>
+            <!-- Para usar orderBy é necessário colocar o elemento que você deseja ordernar entre apas -->
+            <li ng-repeat="n in namesAndCountry | orderBy: 'country'">
+                {{n.name + ' ' + n.country}}
+            </li>
+        </ul>
+        <h2>Filtro Filter</h2>
+        <label for="filter">Escreva algo para filtar na lista abaixo</label>
+        <br>
+        <input type="text" ng-model="txtFilter">
+        <ul>
+            <!-- Para usar filter é necessário colocar a string que você deseja que contenha nos elementos entre apas -->
+            <li ng-repeat="n in names | filter: txtFilter">
+                {{n}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+
+    app.controller('appController', function ($scope) {
+        $scope.string = 'Lúcio Brito';
+        $scope.number = 100;
+        $scope.namesAndCountry = [
+            { name: 'Jani', country: 'Norway' },
+            { name: 'Carl', country: 'Sweden' },
+            { name: 'Margareth', country: 'England' },
+            { name: 'Hege', country: 'Norway' },
+            { name: 'Joe', country: 'Denmark' },
+            { name: 'Gustav', country: 'Sweden' },
+            { name: 'Birgit', country: 'Denmark' },
+            { name: 'Mary', country: 'England' },
+            { name: 'Kai', country: 'Norway' }
+        ];
+        $scope.names = [
+            'Jani',
+            'Carl',
+            'Margareth',
+            'Hege',
+            'Joe',
+            'Gustav',
+            'Birgit',
+            'Mary',
+            'Kai'
+        ];
+    });
+</script>
+
+</html>
