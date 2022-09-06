@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Desafio tabela com filtro</title>
+    <style>
+        tr:nth-child(odd) {
+            background-color: aquamarine;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app="app" ng-controller="appController">
+        <table width="500px" cellspacing="0">
+            <tr>
+                <td ng-click="OrderBy('name')">Name</td>
+                <td ng-click="OrderBy('country')">Country</td>
+            </tr>
+            <tr ng-repeat="n in names | orderBy: order" name="loop">
+                <td>{{n.name}}</td>
+                <td>{{n.country}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    angular.module('app', []).controller('appController', function ($scope) {
+        $scope.names = [
+            { name: 'Jani', country: 'Norway' },
+            { name: 'Carl', country: 'Sweden' },
+            { name: 'Margareth', country: 'England' },
+            { name: 'Hege', country: 'Norway' },
+            { name: 'Joe', country: 'Denmark' },
+            { name: 'Gustav', country: 'Sweden' },
+            { name: 'Birgit', country: 'Denmark' },
+            { name: 'Mary', country: 'England' },
+            { name: 'Kai', country: 'Norway' }
+        ];
+        $scope.OrderBy = function (order) {
+            $scope.order = order;
+        }
+    });
+</script>
+
+</html>
