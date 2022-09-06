@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Usando root scope</title>
+</head>
+
+<body>
+    <h1>Usando Root Scope</h1>
+    <div ng-app="app">
+        <h2>Contexto Rootscope</h2>
+        <p>{{color}}</p>
+
+        <div ng-controller="appController">
+            <h2>Contexto Scope</h2>
+            <p>{{color}}</p>
+        </div>
+
+        <h2>Contexto Rootscope</h2>
+        <p>{{color}}</p>
+    </div>
+</body>
+<script>
+    var app = angular.module('app', []);
+    // usando a propriedade run dentro de um modulo você tem acesso a $rootscope
+    app.run(function ($rootScope) {
+        $rootScope.color = 'blue';
+    });
+    // usando a propriedade controller você tem acesso a $scope 
+    app.controller('appController', function ($scope) {
+        $scope.color = 'green';
+    });
+</script>
+
+</html>
