@@ -24,11 +24,16 @@
             <h2>Retorna a hora atual que atualiza a cada segundo</h2>
             <h3>{{theTime}}</h3>
         </div>
+        <div ng-controller="timeoutController">
+            <h2>A mensagem abaixo será alterada depois de 5 segudos</h2>
+            <h3>{{message}}</h3>
+        </div>
     </div>
 
 </body>
 <script src="./controllers/controller-http.js"></script>
 <script src="./controllers/controller-location.js"></script>
 <script src="./controllers/controller-interval.js"></script>
+<script src="./controllers/controller-timeout.js"></script>
 
 </html>
