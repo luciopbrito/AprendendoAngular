@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Usando serviços integrados</title>
+</head>
+
+<body>
+    <h1>Usando serviços integrados</h1>
+    <div ng-app="app">
+        <div ng-controller="httpController">
+            <h2>Retornando informação de outro arquivo</h2>
+            <h3>{{returnResponseData}}</h3>
+        </div>
+        <div ng-controller="urlController">
+            <h2>Retornando URL dessa página</h2>
+            <h3>{{returnUrl}}</h3>
+        </div>
+        <div ng-controller="intervalController">
+            <h2>Retorna a hora atual que atualiza a cada segundo</h2>
+            <h3>{{theTime}}</h3>
+        </div>
+    </div>
+
+</body>
+<script src="./controllers/controller-http.js"></script>
+<script src="./controllers/controller-location.js"></script>
+<script src="./controllers/controller-interval.js"></script>
+
+</html>
